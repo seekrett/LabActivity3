@@ -20,7 +20,12 @@ class MainActivity : AppCompatActivity() {
 
         
         findViewById<Button>(R.id.clickMeButton).setOnClickListener {
-            displayTextView.text = "Hello, ${findViewById<EditText>(R.id.nameEditText).text}"
+            // display error message when no input
+            if (findViewById<EditText>(R.id.nameEditText).text.toString().isEmpty()) {
+                displayTextView.text = "Erorr. Please input a name."
+            } else {
+                displayTextView.text = "Hello, ${findViewById<EditText>(R.id.nameEditText).text}"
+            }
         }
 
 
